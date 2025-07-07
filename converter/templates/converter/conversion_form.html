@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h1>Currency Converter</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <h2>Result:</h2>
+        <p>{{ result.amount }} {{ result.from }} = {{ result.converted }} {{ result.to }}</p>
+        <p>Rate: {{ result.rate }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import CurrencyConvertAPIView, currency_convert_form
+from .views import currency_converter_form_view, CurrencyConvertAPIView
 
 urlpatterns = [
-    path('', currency_convert_form, name='currency_form'),  # HTML form at "/"
-    path('convert/', CurrencyConvertAPIView.as_view(), name='currency_convert_api'),  # API at "/api/convert/"
+    path('convert/', currency_converter_form_view, name='currency_form'),
+    path('convert-api/', CurrencyConvertAPIView.as_view(), name='currency_api'),
 ]
