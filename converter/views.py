@@ -2,6 +2,10 @@ from django.shortcuts import render
 from .forms import CurrencyConversionForm
 import requests
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+from django.shortcuts import render
+
+def currency_convert_form(request):
+    return render(request, 'converter/conversion_form.html')
 
 def currency_converter_form_view(request):
     result = None
