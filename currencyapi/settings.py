@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 from decouple import config
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,14 +77,7 @@ WSGI_APPLICATION = 'currencyapi.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'currency_api_db',
-        'USER': 'root',
-        'PASSWORD': 'qwerty',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
 
